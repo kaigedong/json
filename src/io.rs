@@ -40,7 +40,7 @@ impl<W: Write> Write for &mut W {
 }
 
 #[cfg(all(not(feature = "std"), feature = "alloc"))]
-impl Write for &mut serde::export::Vec<u8> {
+impl Write for &mut serde::__private::Vec<u8> {
     fn write(&mut self, buf: &[u8]) -> Result<usize> {
         self.extend(buf);
         Ok(buf.len())
